@@ -57,11 +57,35 @@ class Queue{
                 item = items[front_];
             }
         }
+
+        void display(){
+            try{
+                if(isEmpty()){
+                    cout << "The queue is empty!";
+                }
+                else{
+                    int i = front_ ;
+                    while(i!=rare_){
+                        i = (i+1) % maxQue;
+                        cout << items[i]<<" ";
+                    }
+                    cout << endl;
+                }
+            }
+            catch(EmptyQueue){
+                cout << "The queue is empty!";
+            }
+        }
 };
 
 int main()
 {
     Queue<int> q1;
     q1.enqueue(65);
+    q1.enqueue(68);
+    q1.display();
+    int item;
+    q1.dequeue(item);
+    q1.display();
     return 0;
 }
